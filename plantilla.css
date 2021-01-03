@@ -4,8 +4,12 @@ Plantilla.css
                                 TITULO
 --------------------------------------------------------------------*/
 header { 
-    text-align: center;
-    padding-top:15px;
+    height: 85px;
+    position: center;
+    float: center;
+    font-weight: bold;
+    color: black;
+    font-size: 55px;
 } 
 
 /*-------------------------------------------------------------------
@@ -66,9 +70,19 @@ header {
 body {
     font-family: Arial;
     background: #f1f1f1;
-    margin: 0px;
+    margin: 150px;
 }
-
+.title{
+    height: 85px;
+    position: relative;
+    float: center;
+    font-weight: bold;
+    color: black;
+    font-size: 55px;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+  }
 .contenido { 
     background-color: #f1f1f1;
     padding-left: 15%;
@@ -100,17 +114,17 @@ body {
 }
 
 .banner {
-    width:23%;
+    width:53%;
     height:55px;
     background-color:rgb(175, 175, 175);
     font-size: smaller;
     color:white;
     text-align: center;
     border: 4px solid  rgb(212, 233, 245);
-    float: left;
+    float: center;
     display: flex;
     align-items: center;
-    padding-left: 15px;
+    padding-left: 250px;
 }
 
 .vueltaCole{
