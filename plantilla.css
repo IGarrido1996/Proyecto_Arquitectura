@@ -124,7 +124,7 @@ body {
     float: center;
     display: flex;
     align-items: center;
-    padding-left: 250px;
+    padding-left: 500px;
 }
 
 .vueltaCole{
@@ -158,7 +158,7 @@ h3 {
 
 .registro {
     margin-top: 4%;
-    margin-left: 32%;
+    margin-left: 20%;
     text-align: left;
     font-size: medium;
 }

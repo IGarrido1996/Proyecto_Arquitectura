@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
     <head>
-
         <title>
-            Login de RRHH y Empleados
+           Login aplicación
         </title> 
-
-        
-
+        <link rel="icon"  type="image/png" href="iconos/icono.png">
         <meta charset="utf-8"/>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
+        <script src="funciones.js"></script>
     </head>
-
     <body>
-        <!-- CSS -->
+         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="plantilla.css" media="screen" /> 
         
         <!-- Titulos -->
         <header> 
-            <div class="title">Login</div>
-        </header>
-        <div class="banner">Login</div>
+            <div class="title">Inicio de Sesión</div>
+        </header> 
+        <!-- Contenido -->
+        <div class="fila">
+            <div class="contenido">
+                <div class="card">
+                    <div class="registro">
+                        <form action="miCuenta.html"> 
+                            <button class="restablecer" type="reset">Restablecer campos</button><br>
+                            <label for="nombre">Nombre de usuario:</label><br><br>
+                            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+                            <label for="pwd">Contraseña:</label><br><br>
+                            <input type="password" id="pwd" class="casilla" name="pwd" required><br><br> 
+                            <button type="submit" class="boton">Iniciar sesión</button>
+                        </form>
+                        <p><br><br><br></p>
+                        <!--a href="miCuenta.html" class="boton">
+                            Iniciar sesión
+                        </a-->
+                        <a href="registrarse.html" class="boton">
+                            Crear cuenta
+                        </a> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
+       
     </body>
 </html>
