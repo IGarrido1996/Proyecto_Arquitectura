@@ -98,7 +98,12 @@ body {
 .card {
     background-color: rgb(212, 233, 245);
     padding: 10px;
-    height: 700px;
+    height: 100px;
+    position: center;
+    float: center;
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
 }
 
 .cardMedio {
