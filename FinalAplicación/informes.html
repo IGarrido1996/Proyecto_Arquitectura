@@ -30,22 +30,17 @@
 
         <div class="card"> En esta página podrás pedir informes en base a la información requerida</div> 
         <div class="cardMedio">
-         Seleccione los campos para recibir su informe:
-         <br></br>
-         <select name="informe" size=9>
-            <option selected value="0"> Elige una opción </option>
-                <optgroup label="Clase"> 
-                <option value="1">Empresa</option> 
-                <option value="2">Proyecto</option> 
-                <option value="3">Empleado</option> 
-            </optgroup> 
-            <optgroup label="Tiempo"> 
-                <option value="10">Anual</option> 
-                <option value="11">Mensual</option> 
-                <option value="12">Semanal</option> 
-                <option value="13">Otros</option>
-            </optgroup> 
-         </select>
+        <form action="informes.html">
+            <button class="restablecer" type="reset">Restablecer campos</button><br>
+            <h2>Escriba los campos para su informe</h2>
+            <label>Escriba entre Empresa, Trabajador o Proyecto</label><br><br>
+            <input type="text" id="clse" class="casilla" name="clase" required><br><br>
+            <label>Elija el tiempo deseado: anual, semanal, mensual u otros</label><br><br>
+            <input type="text" id="tiempo" class="casilla" name="tiempo" required><br><br>
+            <label>Nombre del trabajador, empresa o proyecto</label><br><br>
+            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+            <button onsubmit class="button">Solicitar informe</button>
+        </form>
         </div> 
       
 

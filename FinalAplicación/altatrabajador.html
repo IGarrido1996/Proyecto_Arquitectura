@@ -21,13 +21,25 @@
 
         <!-- Barra del menu -->
         <div class="menu"> 
-            <a href="paginaEmpleados.html">INICIO</a> 
+            <a href="paginaRRHH.html">INICIO</a> 
             <a href="calendario.html">CALENDARIO</a> 
-            <a href="noticias.html">NOTICIAS</a> 
+            <a href="altas.html">ALTAS</a> 
             <a href="peticiones.html">PETICIONES</a>
-            <a href="peticiones.html">LOGOUT</a> 
-            
-            
+            <a href="informes.html">INFORMES</a>   
+        </div> 
+        <div class="card"> En esta página podrás dar de alta a Empresas</div> 
+        <div class="cardMedio">
+        <form action="altatrabajador.html">
+            <button class="restablecer" type="reset">Restablecer campos</button><br>
+            <h2>Escriba los campos del trabajador</h2>
+            <label>Nombre del Trabajador:</label><br><br>
+            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+            <label>Código del Trabajador:</label><br><br>
+            <input type="text" id="codigo" class="casilla" name="codigo" required><br><br>
+            <label>Proyecto en el que participa:</label><br><br>
+            <input type="text" id="proyecto" class="casilla" name="proyecto" required><br><br>
+            <button onsubmit class="button">Añadir Trabajador</button>
+        </form>
         </div> 
 
       
