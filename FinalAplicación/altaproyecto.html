@@ -33,9 +33,9 @@
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos del proyecto</h2>
             <label>Nombre del proyecto:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+            <input type="text" id="nombre" class="casilla" name="nombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
             <label>Código del proyecto:</label><br><br>
-            <input type="text" id="codigo" class="casilla" name="codigo" required><br><br>
+            <input type="text" id="codigo" class="casilla" name="codigo" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
             <button onsubmit class="button">Añadir Proyecto</button>
         </form>
         </div> 

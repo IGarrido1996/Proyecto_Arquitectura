@@ -33,11 +33,11 @@
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos del trabajador</h2>
             <label>Nombre del Trabajador:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+            <input type="text" id="nombre" class="casilla" name="nombre" required maxlength="15" pattern="[A-Z][a-z]+(\s[A-Z][a-z]+)*"><br><br>
             <label>Código del Trabajador:</label><br><br>
-            <input type="text" id="codigo" class="casilla" name="codigo" required><br><br>
+            <input type="text" id="codigo" class="casilla" name="codigo" required pattern="[0-9]+"><br><br>
             <label>Proyecto en el que participa:</label><br><br>
-            <input type="text" id="proyecto" class="casilla" name="proyecto" required><br><br>
+            <input type="text" id="proyecto" class="casilla" name="proyecto" required pattern="[0-9]+"><br><br>
             <button onsubmit class="button">Añadir Trabajador</button>
         </form>
         </div> 

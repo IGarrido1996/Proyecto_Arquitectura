@@ -33,9 +33,9 @@
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos de la Empresa</h2>
             <label>Nombre de la Empresa:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="nombre" required><br><br>
+            <input type="text" id="nombre" class="casilla" name="nombre" required  maxlength="15" pattern="[A-Z][a-z]+(\s[A-Za-z]+)*"><br><br>
             <label>Código de la Empresa:</label><br><br>
-            <input type="text" id="codigo" class="casilla" name="codigo" required><br><br>
+            <input type="text" id="codigo" class="casilla" name="codigo" required max = "1000000" pattern="[0-9]+"><br><br>
             <button onsubmit class="button">Añadir Empresa</button>
         </form>
         </div> 
