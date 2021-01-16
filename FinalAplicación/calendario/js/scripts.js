@@ -125,6 +125,6 @@ fecha_evento.addEventListener('click', (e) => {
 
 
 function enviaEvento() {
-    document.getElementById("textEvento") = " ";
+    document.getElementById("textEvento") = " ";   //conectarlo con la base de datos
 
 }
