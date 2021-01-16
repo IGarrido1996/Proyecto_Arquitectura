@@ -10,13 +10,22 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
+        <title>
+            Página para editar un trabajador
+        </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="plantilla.css" media="screen" />
+        <!-- Titulos -->
+        <header> 
+          <div class="title">Portal de trabajadores</div>
+        </header> 
         <%
         Connection con;
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -33,39 +42,33 @@
         rs=ps.executeQuery();
         while(rs.next()){
         %>
-        <div class="container">
-            <h1>Modificar trabajador</h1>
-            <hr>
-            <form action="" method="post" class="form-control" style="width: 500px; height: 400px">
-                Nombre:
-                <input type="text" name="txtnombre" class="form-control" value="<%=rs.getString("name")%>"/>
-                TrabajadorID:
-                <input type="text" readonly="" class="form-control" value="<%=rs.getString("trabajadorID")%>"/>
-                Usuario:
-                <input type="text" readonly="" class="form-control" value="<%=rs.getString("usuario")%>"/>
-                Hora inicio:
-                <input type="text" name="txthorainicio" class="form-control" value="<%=rs.getString("horaInicio")%>"/>
-                Hora fin:
-                <input type="text" name="txthorafin" class="form-control" value="<%=rs.getString("horaFin")%>"/>
-                Horas totales:
-                <input type="text" name="txthorastotales" class="form-control" value="<%=rs.getString("horasTotales")%>"/>
-                PeticionesID:
-                <input type="text" name="txtpeticionesID" class="form-control" value="<%=rs.getString("peticionesID")%>"/>
-                <br>
-                <br>
-                <input type="submit" value="Guardar" class="btn btn-primary btn-lg" onclick="javascript:history.back()"/>
-                <br>
+        <div class="cardMedio">
+            <form action="" method="post">
+                <h2>Modificar Trabajador</h2>
+                <label>Nombre del trabajador:</label><br><br>
+                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <label>Código del trabajador:</label><br><br>
+                <input type="text" readonly="" value="<%=rs.getString("trabajadorID")%>" id="codigoTrabajador" class="casilla" name="txttrabajadorID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
+                <label>Usuario:</label><br><br>
+                <input type="text" value="<%=rs.getString("usuario")%>" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <label>Hora de inicio:</label><br><br>
+                <input type="text" value="<%=rs.getString("horaInicio")%>" id="horaInicio" class="casilla" name="txthorainicio" required min = "1" max = "1000000"><br><br>
+                <label>Hora final:</label><br><br>
+                <input type="text" value="<%=rs.getString("horaFin")%>" id="horaFin" class="casilla" name="txthorafin" required min = "1" max = "1000000"><br><br>
+                <label>Horas totales:</label><br><br>
+                <input type="text" value="<%=rs.getString("horasTotales")%>" id="horasTotales" class="casilla" name="txthorastotales" required min = "1" max = "1000000"><br><br>
+                <button onsubmit class="button">Modificar Trabajador</button>
                 <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
-            <%}%>
+        <%}%>
         </div>
     </body>
 </html>
 <%
-        String name,peticionesID,horasTotales;
+        String name,peticionesID,horasTotales,usuario;
         name=request.getParameter("txtnombre");
-        peticionesID=request.getParameter("txtpeticionesID");
         horasTotales=request.getParameter("txthorastotales");
+        usuario=request.getParameter("txtusuario");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
         Calendar cal = Calendar.getInstance(); 
@@ -73,7 +76,7 @@
 
         
         if(name!=null){
-            ps=con.prepareStatement("update trabajadores set name='"+name+"',horaInicio='"+timestamp+"',horaFin='"+timestamp+"',horasTotales='"+horasTotales+"',peticionesID="+null+" where trabajadorID="+trabajadorID);
+            ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio='"+timestamp+"',horaFin='"+timestamp+"',horasTotales='"+horasTotales+"' where trabajadorID="+trabajadorID);
             ps.executeUpdate();
             response.sendRedirect("inicioRRHH.jsp");
         }   

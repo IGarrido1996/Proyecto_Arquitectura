@@ -7,14 +7,21 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
+        <title>
+            Página para editar una empresa
+        </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <title></title>
     </head>
     <body>
-        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="plantilla.css" media="screen" />
+        <!-- Titulos -->
+        <header> 
+          <div class="title">Portal de empresas</div>
+        </header> 
         <%
         Connection con;
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -25,8 +32,7 @@
         con=DriverManager.getConnection(url,user,pass);
         String usuario=request.getParameter("txtusuario");
         String contraseña=request.getParameter("txtcontraseña");
-        System.out.println(usuario);
-        System.out.println(contraseña);
+
         PreparedStatement ps;
         ResultSet rs;
         String empresaID=request.getParameter("empresaID");
@@ -34,22 +40,17 @@
         rs=ps.executeQuery();
         while(rs.next()){
         %>
-        <div class="container">
-            
-            <h1>Modificar empresa</h1>
-            <hr>
-            <form action="" method="post" class="form-control" style="width: 500px; height: 400px">
-                Nombre:
-                <input type="text" name="txtnombre" class="form-control" value="<%=rs.getString("name")%>"/>
-                EmpresaID:
-                <input type="text" readonly="" class="form-control" value="<%=rs.getString("empresaID")%>"/>
-                <br>
-                <br>
-                <input type="submit" value="Guardar" class="btn btn-primary btn-lg"/>
-                <br>
+        <div class="cardMedio">
+            <form action="" method="post">
+                <h2>Modificar Empresa</h2>
+                <label>Nombre de la empresa:</label><br><br>
+                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <label>Código de la empresa del proyecto:</label><br><br>
+                <input type="text" readonly="" value="<%=rs.getString("empresaID")%>" id="codigoEmpresa" class="casilla" name="txtempresaID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
+                <button onsubmit class="button">Modificar Proyecto</button>
                 <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
-            <%}%>
+        <%}%>
         </div>
     </body>
 </html>

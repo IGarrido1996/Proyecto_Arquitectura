@@ -3,52 +3,76 @@
     Created on : 11-ene-2021, 22:15:08
     Author     : david
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
+        <title>
+           Pagina para dar de alta un proyecto
+        </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
     </head>
     <body>
-        <div class="container">
-            <h1>Agregar usuario</h1>
-            <hr>
-            <form action="" method="post" class="form-control" style="width: 500px; height: 400px">
-                Nombre:
-                <input type="text" name="txtnombre" class="form-control"/>
-                ProyectoID:
-                <input type="text" name="txtproyectoID" class="form-control"/>
-                EmpresaID:
-                <input type="text" name="txtempresaID" class="form-control"/>
-                <br>
-                <br>
-                <input type="submit" value="Guardar" class="btn btn-primary btn-lg" onclick="javascript:history.back()"/>
-                <br>
-                <a href="inicioRRHH.jsp"> Volver Atrás</a>
-            </form>
-        </div>
-        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="plantilla.css" media="screen" />
+        <!-- Titulos -->
+        <header> 
+          <div class="title">Portal de Informes</div>
+        </header> 
+
+        <!-- Barra del menu -->
+        <div class="menu"> 
+            <a href="inicioRRHH.jsp">INICIO</a> 
+            <a href="calendario.html">CALENDARIO</a> 
+            <a href="altas.jsp">ALTAS</a> 
+            <a href="peticionesRRHH.jsp">PETICIONES</a>
+            <a href="informes.html">INFORMES</a>   
+        </div> 
+        <%
+            Connection con;
+            String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            String driver="com.mysql.jdbc.Driver";
+            String user="root";
+            String pass="contraseña";
+            Class.forName(driver);
+            con=DriverManager.getConnection(url,user,pass);
+            PreparedStatement ps;
+            ResultSet rs;
+            ArrayList<Integer> identificadores = new ArrayList<Integer>();
+            ps=con.prepareStatement("select proyectoID from proyecto");
+            rs=ps.executeQuery();
+            while(rs.next()){
+                identificadores.add(Integer.parseInt(rs.getString("proyectoID")));
+            }
+        %>
+        <div class="card"> En esta página podrás dar de alta a Empresas</div> 
+        <div class="cardMedio">
+        <form action="AgregarProyecto.jsp" method="post">
+            <button class="restablecer" type="reset">Restablecer campos</button><br>
+            <h2>Escriba los campos del proyecto</h2>
+            <label>Nombre del proyecto:</label><br><br>
+            <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+            <label>Código de la empresa del proyecto:</label><br><br>
+            <input type="text" id="codigoEmpresa" class="casilla" name="txtempresaID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
+            <button onsubmit class="button">Añadir Proyecto</button>
+            <a href="altas.jsp"> Volver Atrás</a>
+        </form>
+        </div>                
     </body>
 </html>
 <%
-        Connection con;
-        String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        String driver="com.mysql.jdbc.Driver";
-        String user="root";
-        String pass="contraseña";
-        Class.forName(driver);
-        con=DriverManager.getConnection(url,user,pass);
-        
-        PreparedStatement ps;
-        String name,proyectoID,empresaID;
+        String name,empresaID;
         name=request.getParameter("txtnombre");
-        proyectoID=request.getParameter("txtproyectoID");
         empresaID=request.getParameter("txtempresaID");
+        int proyectoID=1;
+        while(identificadores.contains(proyectoID)){
+            proyectoID++;
+        }
 
-        if(name!=null && proyectoID!=null && empresaID!=null){
+        if(name!=null && empresaID!=null){
             ps=con.prepareStatement("insert into proyecto(name,proyectoID,empresaID) values ('"+name+"','"+proyectoID+"','"+empresaID+"')");
             ps.executeUpdate();
             response.sendRedirect("inicioRRHH.jsp");
