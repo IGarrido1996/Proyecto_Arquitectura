@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.sql.*;
 
-public final class inicioEmpleados_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class editarProyecto_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -31,7 +31,7 @@ public final class inicioEmpleados_jsp extends org.apache.jasper.runtime.HttpJsp
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -44,10 +44,13 @@ public final class inicioEmpleados_jsp extends org.apache.jasper.runtime.HttpJsp
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"es\">\n");
       out.write("    <head>\n");
       out.write("        <title>\n");
-      out.write("           Pagina principal empleados\n");
+      out.write("            Página para editar un proyecto\n");
       out.write("        </title>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
@@ -56,16 +59,10 @@ public final class inicioEmpleados_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("    <body>\n");
       out.write("        <!-- CSS -->\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"plantilla.css\" media=\"screen\" />\n");
+      out.write("        <!-- Titulos -->\n");
       out.write("        <header> \n");
-      out.write("          <div class=\"title\">Portal Empleado</div>\n");
-      out.write("        </header>\n");
-      out.write("        <!-- Barra del menu -->\n");
-      out.write("        <div class=\"menu\"> \n");
-      out.write("            <a href=\"inicioEmpleados.jsp\">INICIO</a> \n");
-      out.write("            <a href=\"calendario.html\">CALENDARIO</a> \n");
-      out.write("            <a href=\"peticiones.html\">PETICIONES</a>\n");
-      out.write("            <a href=\"fichar.html\">FICHAR</a> \n");
-      out.write("        </div>\n");
+      out.write("          <div class=\"title\">Portal de proyectos</div>\n");
+      out.write("        </header> \n");
       out.write("        ");
 
         Connection con;
@@ -78,52 +75,49 @@ public final class inicioEmpleados_jsp extends org.apache.jasper.runtime.HttpJsp
         
         PreparedStatement ps;
         ResultSet rs;
-        String usuario=(String) request.getSession().getAttribute("usuario"); 
-        ps=con.prepareStatement("select proyecto.name, proyecto.proyectoID, proyecto.empresaID from trabajadores inner join proyectoTrabajadores inner join proyecto where trabajadores.usuario='"+usuario+"' and  proyectoTrabajadores.trabajadorID=trabajadores.trabajadorID and proyectoTrabajadores.proyectoID=proyecto.proyectoID");
+        String proyectoID=request.getParameter("proyectoID");
+        ps=con.prepareStatement("select * from proyecto where proyectoID="+proyectoID);
         rs=ps.executeQuery();
+        while(rs.next()){
         
       out.write("\n");
-      out.write("        <div class=\"fila\">\n");
-      out.write("            <div class=\"contenido\">\n");
-      out.write("                <div class=\"card\">\n");
-      out.write("                    <div class=\"registro\">\n");
-      out.write("                        <h1>Proyectos</h1>\n");
-      out.write("                        <hr>\n");
-      out.write("                        <p>Seleccione el número de horas empleado en cada proyecto</p>\n");
-      out.write("                        <table class=\"table table-bordered\">\n");
-      out.write("                            <tr>\n");
-      out.write("                                <th class=\"text-center\">Name</th>\n");
-      out.write("                                <th class=\"text-center\">ProyectoID</th>\n");
-      out.write("                                <th class=\"text-center\">EmpresaID</th>\n");
-      out.write("                            </tr>\n");
-      out.write("                ");
-
-                    while(rs.next()){
-                
-      out.write("\n");
-      out.write("                <tr>\n");
-      out.write("                    <td class=\"text-center\">");
-      out.print( rs.getString("name"));
-      out.write("</td>\n");
-      out.write("                    <td class=\"text-center\">");
-      out.print( rs.getString("proyectoID"));
-      out.write("</td>\n");
-      out.write("                    <td class=\"text-center\">");
-      out.print( rs.getString("empresaID"));
-      out.write("</td>\n");
-      out.write("                </tr>\n");
-      out.write("                ");
+      out.write("        <div class=\"cardMedio\">\n");
+      out.write("            <form action=\"\" method=\"post\">\n");
+      out.write("                <button class=\"restablecer\" type=\"reset\">Restablecer campos</button><br>\n");
+      out.write("                <h2>Escriba los campos del proyecto</h2>\n");
+      out.write("                <label>Nombre del proyecto:</label><br><br>\n");
+      out.write("                <input type=\"text\" value=\"");
+      out.print(rs.getString("name"));
+      out.write("\" id=\"nombre\" class=\"casilla\" name=\"txtnombre\" required maxlength=\"15\" pattern=\"[A-Za-z][a-z]+[0-9]*\"><br><br>\n");
+      out.write("                <label>Código del proyecto:</label><br><br>\n");
+      out.write("                <input type=\"text\" value=\"");
+      out.print(rs.getString("proyectoID"));
+      out.write("\" id=\"codigo\" class=\"casilla\" name=\"txtproyectoID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\n");
+      out.write("                <label>Código de la empresa del proyecto:</label><br><br>\n");
+      out.write("                <input type=\"text\" value=\"");
+      out.print(rs.getString("empresaID"));
+      out.write("\" id=\"codigoEmpresa\" class=\"casilla\" name=\"txtempresaID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\n");
+      out.write("                <button onsubmit class=\"button\">Modificar Proyecto</button>\n");
+      out.write("                <a href=\"inicioRRHH.jsp\"> Volver Atrás</a>\n");
+      out.write("            </form>\n");
+      out.write("        ");
 }
       out.write("\n");
-      out.write("            </table>\n");
-      out.write("            <br>\n");
-      out.write("            <a   href=\"peticiones.jsp\" class=\"btn btn-danger btn-sm\" >Hacer o ver el estado de una petición</a> \n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+
+        String name,empresaID;
+        name=request.getParameter("txtnombre");
+        empresaID=request.getParameter("txtempresaID");
+        
+        if(name!=null && empresaID!=null && proyectoID!=null){
+            ps=con.prepareStatement("update proyecto set name='"+name+"',empresaID='"+empresaID+"' where proyectoID="+proyectoID);
+            ps.executeUpdate();
+            response.sendRedirect("inicioRRHH.jsp");
+        }   
+
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
