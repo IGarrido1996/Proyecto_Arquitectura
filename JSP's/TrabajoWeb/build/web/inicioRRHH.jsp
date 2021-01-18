@@ -70,7 +70,6 @@
                     <td class="text-center"><%= rs.getString("usuario")%></td>
                     <td class="text-center"><%= rs.getString("horaInicio")%></td>
                     <td class="text-center"><%= rs.getString("horaFin")%></td>
-                    <td class="text-center"><%= rs.getInt("horasTotales")%></td>
                     <td class="text-center">
                     <a href="editar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>" class="btn btn-warning btn-sm">Editar</a>
                     <a href="eliminar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>" class="btn btn-danger btn-sm">Borrar</a>

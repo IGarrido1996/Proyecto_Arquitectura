@@ -27,7 +27,7 @@
         <div class="menu"> 
             <a href="inicioRRHH.jsp">INICIO</a> 
             <a href="calendario.html">CALENDARIO</a> 
-            <a href="altas.html">ALTAS</a> 
+            <a href="altas.jsp">ALTAS</a> 
             <a href="peticionesRRHH.jsp">PETICIONES</a>
             <a href="informes.html">INFORMES</a>   
         </div>

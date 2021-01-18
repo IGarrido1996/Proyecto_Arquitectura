@@ -55,8 +55,6 @@
                 <input type="text" value="<%=rs.getString("horaInicio")%>" id="horaInicio" class="casilla" name="txthorainicio" required min = "1" max = "1000000"><br><br>
                 <label>Hora final:</label><br><br>
                 <input type="text" value="<%=rs.getString("horaFin")%>" id="horaFin" class="casilla" name="txthorafin" required min = "1" max = "1000000"><br><br>
-                <label>Horas totales:</label><br><br>
-                <input type="text" value="<%=rs.getString("horasTotales")%>" id="horasTotales" class="casilla" name="txthorastotales" required min = "1" max = "1000000"><br><br>
                 <button onsubmit class="button">Modificar Trabajador</button>
                 <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
@@ -65,9 +63,8 @@
     </body>
 </html>
 <%
-        String name,peticionesID,horasTotales,usuario;
+        String name,usuario;
         name=request.getParameter("txtnombre");
-        horasTotales=request.getParameter("txthorastotales");
         usuario=request.getParameter("txtusuario");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
@@ -76,7 +73,7 @@
 
         
         if(name!=null){
-            ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio='"+timestamp+"',horaFin='"+timestamp+"',horasTotales='"+horasTotales+"' where trabajadorID="+trabajadorID);
+            ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio='"+timestamp+"',horaFin='"+timestamp+"' where trabajadorID="+trabajadorID);
             ps.executeUpdate();
             response.sendRedirect("inicioRRHH.jsp");
         }   

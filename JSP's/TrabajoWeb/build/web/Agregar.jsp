@@ -31,7 +31,7 @@
         <div class="menu"> 
             <a href="inicioRRHH.jsp">INICIO</a> 
             <a href="calendario.html">CALENDARIO</a> 
-            <a href="altas.html">ALTAS</a> 
+            <a href="altas.jsp">ALTAS</a> 
             <a href="peticionesRRHH.jsp">PETICIONES</a>
             <a href="informes.html">INFORMES</a>   
         </div>
@@ -61,8 +61,6 @@
             <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
             <label>Usuario:</label><br><br>
             <input type="text" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
-            <label>Hora de inicio:</label><br><br>
-            <input type="text" id="horainicio" class="casilla" name="txthorainicio" required maxlength="30"><br><br>
             <button onsubmit class="button">Añadir Trabajador</button>
             <a href="altas.jsp"> Volver Atrás</a>
         </form>
@@ -77,11 +75,7 @@
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
         String text = String.valueOf(horainicio);
-        //Calendar cal = Calendar.getInstance(); 
-        //java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
-        
-        //java.util.Date date2 = dateFormat.parse(text);
-        //java.sql.Timestamp ts = new Timestamp(date2.getTime());
+
         int trabajadorID=1;
         while(identificadores.contains(trabajadorID)){
             trabajadorID++;
@@ -90,7 +84,7 @@
         if(name!=null){
             java.util.Date date2 = dateFormat.parse(text);
             java.sql.Timestamp ts = new Timestamp(date2.getTime());
-            ps=con.prepareStatement("insert into trabajadores(name,trabajadorID,usuario,horaInicio,horaFin,horasTotales) values ('"+name+"','"+trabajadorID+"','"+usuario+"','"+ts+"',"+null+","+null+")");
+            ps=con.prepareStatement("insert into trabajadores(name,trabajadorID,usuario,horaInicio,horaFin) values ('"+name+"','"+trabajadorID+"','"+usuario+"',"+null+","+null+")");
             ps.executeUpdate();
             response.sendRedirect("inicioRRHH.jsp");
         }       
