@@ -2,6 +2,8 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
 /*
 body {
     background: -webkit-gradient(linear, left top, right top, from(mediumpurple), to(lightsalmon));
@@ -89,4 +91,8 @@ body {
 
 .dia_evento {
     background: darkgreen;
+}
+
+.dia_anterior {
+    background: #4ECDC4;
 }

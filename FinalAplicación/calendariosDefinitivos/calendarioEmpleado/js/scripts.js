@@ -94,8 +94,23 @@ const setNuevaFecha = () => {
 escribeMes(numeroMes);
 
 
+
+//document.getElementById('dates').addEventListener("click", creaEvento(this.MouseEvent));
+
+/*
+let divEvento = document.getElementById("text_event");
+let textEvento = document.createElement("textarea");
+textEvento.setAttribute("id", "evento");
+textEvento.setAttribute("row", "260");
+textEvento.setAttribute("cols", "60");
+textEvento.setAttribute("style", "resize:none; text-align:right");
+divEvento.appendChild(textEvento);*/
+
+
 let fechaLabel = document.getElementById('labelFecha');
 let textoEvento = document.getElementById("textEvento");
+
+const fecha_evento = document.getElementById('dates');
 
 var anterior = null;
 
@@ -105,10 +120,14 @@ borra_evento.addEventListener('click', (e) => {
     anterior.classList.remove("dia_evento");
 })
 
-const fecha_evento = document.getElementById('dates');
-
 fecha_evento.addEventListener('click', (e) => {
     console.log(e.target.textContent);
+
+    //document.getElementById("calendar__date calendar__item").classList.add("dia_anterior");
+    //document.getElementById("calendar").classList.add("calendar");
+    anterior = e.target;
+    //anterior.classList.remove("dia_evento");
+
     e.target.classList.add("dia_evento");
     //pie = document.getElementById("text_event");
     pie = document.getElementById("labelFecha");
@@ -118,7 +137,8 @@ fecha_evento.addEventListener('click', (e) => {
 })
 
 
+
 function enviaEvento() {
-    document.getElementById("textEvento") = " ";   //conectarlo con la base de datos
+    document.getElementById("textEvento") = " ";
 
 }
