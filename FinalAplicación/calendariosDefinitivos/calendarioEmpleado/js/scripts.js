@@ -112,9 +112,22 @@ let textoEvento = document.getElementById("textEvento");
 
 const fecha_evento = document.getElementById('dates');
 
+var anterior = null;
+
+const borra_evento = document.getElementById("dates");
+
+borra_evento.addEventListener('click', (e) => {
+    anterior.classList.remove("dia_evento");
+})
 
 fecha_evento.addEventListener('click', (e) => {
     console.log(e.target.textContent);
+
+    //document.getElementById("calendar__date calendar__item").classList.add("dia_anterior");
+    //document.getElementById("calendar").classList.add("calendar");
+    anterior = e.target;
+    //anterior.classList.remove("dia_evento");
+
     e.target.classList.add("dia_evento");
     //pie = document.getElementById("text_event");
     pie = document.getElementById("labelFecha");
@@ -124,7 +137,8 @@ fecha_evento.addEventListener('click', (e) => {
 })
 
 
+
 function enviaEvento() {
-    document.getElementById("textEvento") = " ";   //conectarlo con la base de datos
+    document.getElementById("textEvento") = " ";
 
 }
