@@ -17,7 +17,7 @@
            Pagina para dar de alta un trabajador
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
         <!-- CSS -->
@@ -53,38 +53,76 @@
             }
         %>
         <div class="card"> En esta página podrás dar de alta a un Trabajador</div> 
+        <div class="container">
+            <h1>Proyectos</h1>
+            <hr>
+            <br>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">ProyectoID</th>
+                    <th class="text-center">EmpresaID</th>
+                </tr>
+                <%
+                    ps=con.prepareStatement("select * from proyecto");
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                %>
+                <tr>
+                    <td class="text-center"><%= rs.getString("name")%></td>
+                    <td class="text-center"><%= rs.getString("proyectoID")%></td>
+                    <td class="text-center"><%= rs.getString("empresaID")%></td>
+                </tr>
+                <%}%>
+            </table>
+        </div>
         <div class="cardMedio">
         <form action="Agregar.jsp" method="post">
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos del trabajador</h2>
             <label>Nombre del trabajador:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+            <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
+            <label>Código del proyecto en el que trabaja el trabajador:</label><br><br>
+            <input type="text" id="codigoEmpresa" class="casilla" name="txtempresaID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>    
             <label>Usuario:</label><br><br>
-            <input type="text" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+            <input type="text" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z0-9]+"><br><br>
+            <label>Tipo:</label>
+            <br>
+            <br>
+            <select id="peticionTipo" name="peticionTipo">
+              <option value="recursos humanos">Recursos humanos</option>
+              <option value="empleado">Empleado</option>
+            </select>
+            <br>
+            <br>
+            <label>Contraseña:</label><br><br>
+            <input type="text" id="contraseña" class="casilla" name="txtcontrasena" required min = "1" max = "1000000" pattern="[A-Za-z0-9]+"><br><br>
             <button onsubmit class="button">Añadir Trabajador</button>
-            <a href="altas.jsp"> Volver Atrás</a>
+
         </form>
         </div> 
     </body>
 </html>
 <%
-        String name,usuario,horainicio;
+        String name,usuario,tipo,contrasena,empresaID;
         name=request.getParameter("txtnombre");
         usuario=request.getParameter("txtusuario");
-        horainicio=request.getParameter("txthorainicio");
+        contrasena=request.getParameter("txtcontrasena");
+        tipo=request.getParameter("peticionTipo");
+        empresaID=request.getParameter("txtempresaID");
         
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
-        String text = String.valueOf(horainicio);
-
         int trabajadorID=1;
         while(identificadores.contains(trabajadorID)){
             trabajadorID++;
         }
 
         if(name!=null){
-            java.util.Date date2 = dateFormat.parse(text);
-            java.sql.Timestamp ts = new Timestamp(date2.getTime());
+            ps=con.prepareStatement("insert into usuarios(usuario,tipo,contraseña) values ('"+usuario+"','"+tipo+"','"+contrasena+"')");
+            ps.executeUpdate();
             ps=con.prepareStatement("insert into trabajadores(name,trabajadorID,usuario,horaInicio,horaFin) values ('"+name+"','"+trabajadorID+"','"+usuario+"',"+null+","+null+")");
+            ps.executeUpdate();
+            ps=con.prepareStatement("insert into proyectoTrabajadores(trabajadorID,proyectoID) values ('"+trabajadorID+"','"+empresaID+"')");
             ps.executeUpdate();
             response.sendRedirect("inicioRRHH.jsp");
         }       

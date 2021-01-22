@@ -13,7 +13,7 @@
            Pagina para dar de alta un proyecto
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plantilla.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- CSS -->
@@ -54,11 +54,11 @@
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos del proyecto</h2>
             <label>Nombre del proyecto:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+            <input type="text" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
             <label>Código de la empresa del proyecto:</label><br><br>
             <input type="text" id="codigoEmpresa" class="casilla" name="txtempresaID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
             <button onsubmit class="button">Añadir Proyecto</button>
-            <a href="altas.jsp"> Volver Atrás</a>
+
         </form>
         </div>                
     </body>

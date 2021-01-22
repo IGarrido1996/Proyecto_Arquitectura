@@ -274,6 +274,22 @@ button:hover {
     transform: translateY(4px);
 }
 
+.botonBorrar,.botonEditar{
+    margin-top: 5%;
+    margin-left: 11%;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: yellow;
+    background-color: rgb(134,207,190);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    
+}
+
 /*Boton en "Mi cesta"*/
 .tramitar {
     margin-top: 10%;
@@ -303,7 +319,7 @@ button:hover {
 
 /*Restablecer los campos*/
 .restablecer {
-    margin-left: 70%;
+    margin-left: 50%;
     padding: 15px 25px;
     font-size: 18px;
     text-align: center;
@@ -421,3 +437,58 @@ footer {
     font-weight:bold; 
 }
 
+h1{ 
+    text-align: center;
+    color: blue; 
+    font-style: italic;
+    font-size:30px; 
+}
+table {
+   width: 100%;
+   border: 3px solid #000;
+}
+th, td {
+   width: 15%;
+   text-align: center;
+   vertical-align: middle;
+   border: 3px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+   font-weight: 600;
+   font-size: 20px
+}
+th{
+    background-color: black;
+    color: white;
+}
+a ,.guardar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  text-decoration: none;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1883ba;
+  border-radius: 6px;
+  border: 2px solid #0016b0;
+}
+.form-control{
+    text-align: left;
+   vertical-align: middle;
+    width:100px;
+  padding:10px;
+  border-radius:0px;
+  padding-right: 101px;
+  
+}
+
+div,.botonesAgregar{
+    margin-top: 5%;
+    margin-left: 11%;
+    width:1001px;
+    
+}

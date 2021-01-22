@@ -33,9 +33,9 @@
             <a href="informes.html">INFORMES</a>   
         </div> 
 
-        <div class="button"> <a href="agregarEmpresa.jsp">Altas Empresas</a> </div> 
-        <div class="button"> <a href="AgregarProyecto.jsp">Altas Proyectos</a> </div> 
-        <div class="button"> <a href="Agregar.jsp">Altas Trabajador</a> </div> 
+        <div> <a href="agregarEmpresa.jsp">Altas Empresas</a> </div> 
+        <div> <a href="AgregarProyecto.jsp">Altas Proyectos</a> </div> 
+        <div> <a href="Agregar.jsp">Altas Trabajador</a> </div> 
 
     </body>
 </html>

@@ -13,7 +13,7 @@
             Página para editar un proyecto
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
         <!-- CSS -->
@@ -22,6 +22,14 @@
         <header> 
           <div class="title">Portal de proyectos</div>
         </header> 
+        <!-- Barra del menu -->
+        <div class="menu"> 
+            <a href="inicioRRHH.jsp">INICIO</a> 
+            <a href="calendario.html">CALENDARIO</a> 
+            <a href="altas.jsp">ALTAS</a> 
+            <a href="peticionesRRHH.jsp">PETICIONES</a>
+            <a href="informes.html">INFORMES</a>
+        </div>
         <%
         Connection con;
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -42,13 +50,12 @@
             <form action="" method="post">
                 <h2>Modificar Proyecto</h2>
                 <label>Nombre del proyecto:</label><br><br>
-                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
                 <label>Código del proyecto:</label><br><br>
                 <input type="text" readonly="" value="<%=rs.getString("proyectoID")%>" id="codigo" class="casilla" name="txtproyectoID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
                 <label>Código de la empresa del proyecto:</label><br><br>
                 <input type="text" value="<%=rs.getString("empresaID")%>" id="codigoEmpresa" class="casilla" name="txtempresaID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
                 <button onsubmit class="button">Modificar Proyecto</button>
-                <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
         <%}%>
         </div>

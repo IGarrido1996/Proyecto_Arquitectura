@@ -13,7 +13,7 @@
             Página principal de RRHH
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -58,7 +58,6 @@
                     <th class="text-center">Usuario</th>
                     <th class="text-center">Hora inicio</th>
                     <th class="text-center">Hora fin</th>
-                    <th class="text-center">Horas totales</th>
                     <th class="text-center">Acciones</th>
                 </tr>
                 <%
@@ -71,8 +70,8 @@
                     <td class="text-center"><%= rs.getString("horaInicio")%></td>
                     <td class="text-center"><%= rs.getString("horaFin")%></td>
                     <td class="text-center">
-                    <a href="editar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="eliminar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>" class="btn btn-danger btn-sm">Borrar</a>
+                    <a href="editar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>">Editar</a>
+                    <a href="eliminar.jsp?trabajadorID=<%= rs.getString("trabajadorID")%>">Borrar</a>
                     </td>
                 </tr>
                 <%}%>
@@ -98,8 +97,8 @@
                     <td class="text-center"><%= rs.getString("name")%></td>
                     <td class="text-center"><%= rs.getString("empresaID")%></td>
                     <td class="text-center">
-                    <a href="editarEmpresa.jsp?empresaID=<%= rs.getString("empresaID")%>" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="eliminarEmpresa.jsp?empresaID=<%= rs.getString("empresaID")%>" class="btn btn-danger btn-sm">Borrar</a>
+                    <a href="editarEmpresa.jsp?empresaID=<%= rs.getString("empresaID")%>">Editar</a>
+                    <a href="eliminarEmpresa.jsp?empresaID=<%= rs.getString("empresaID")%>">Borrar</a>
                     </td>
                 </tr>
                 <%}%>
@@ -127,8 +126,8 @@
                     <td class="text-center"><%= rs.getString("proyectoID")%></td>
                     <td class="text-center"><%= rs.getString("empresaID")%></td>
                     <td class="text-center">
-                    <a href="editarProyecto.jsp?proyectoID=<%= rs.getString("proyectoID")%>" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="eliminarProyecto.jsp?proyectoID=<%= rs.getString("proyectoID")%>" class="btn btn-danger btn-sm">Borrar</a>
+                    <a href="editarProyecto.jsp?proyectoID=<%= rs.getString("proyectoID")%>">Editar</a>
+                    <a href="eliminarProyecto.jsp?proyectoID=<%= rs.getString("proyectoID")%>">Borrar</a>
                     </td>
                 </tr>
                 <%}%>

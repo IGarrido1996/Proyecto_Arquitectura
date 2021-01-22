@@ -16,7 +16,7 @@
             Página para editar un trabajador
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
         <title></title>
     </head>
     <body>
@@ -26,6 +26,14 @@
         <header> 
           <div class="title">Portal de trabajadores</div>
         </header> 
+        <!-- Barra del menu -->
+        <div class="menu"> 
+            <a href="inicioRRHH.jsp">INICIO</a> 
+            <a href="calendario.html">CALENDARIO</a> 
+            <a href="altas.jsp">ALTAS</a> 
+            <a href="peticionesRRHH.jsp">PETICIONES</a>
+            <a href="informes.html">INFORMES</a>
+        </div>
         <%
         Connection con;
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -46,17 +54,16 @@
             <form action="" method="post">
                 <h2>Modificar Trabajador</h2>
                 <label>Nombre del trabajador:</label><br><br>
-                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <input type="text" value="<%=rs.getString("name")%>" id="nombre" class="casilla" name="txtnombre" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
                 <label>Código del trabajador:</label><br><br>
                 <input type="text" readonly="" value="<%=rs.getString("trabajadorID")%>" id="codigoTrabajador" class="casilla" name="txttrabajadorID" required min = "1" max = "1000000" pattern="[0-9]+"><br><br>
                 <label>Usuario:</label><br><br>
-                <input type="text" value="<%=rs.getString("usuario")%>" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <input type="text" value="<%=rs.getString("usuario")%>" id="usuario" class="casilla" name="txtusuario" required min = "1" max = "1000000" pattern="[A-Za-z0-9]+"><br><br>
                 <label>Hora de inicio:</label><br><br>
                 <input type="text" value="<%=rs.getString("horaInicio")%>" id="horaInicio" class="casilla" name="txthorainicio" required min = "1" max = "1000000"><br><br>
                 <label>Hora final:</label><br><br>
                 <input type="text" value="<%=rs.getString("horaFin")%>" id="horaFin" class="casilla" name="txthorafin" required min = "1" max = "1000000"><br><br>
                 <button onsubmit class="button">Modificar Trabajador</button>
-                <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
         <%}%>
         </div>

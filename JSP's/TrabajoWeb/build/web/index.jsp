@@ -33,29 +33,16 @@
         ps=con.prepareStatement("select * from usuarios");
         rs=ps.executeQuery();
         %>
-        <div class="fila">
-            <div class="contenido">
-                <div class="card">
-                    <div class="registro">
-                        <form action="validarUsuario.jsp" method="GET" name="miniformualario"> 
-                            <button class="restablecer" type="reset">Restablecer campos</button><br>
-                            <label for="nombre">Nombre de usuario:</label><br><br>
-                            <input type="text" id="nombre" class="casilla" name="txtusuario" required><br><br>
-                            <label for="pwd">Contraseña:</label><br><br>
-                            <input type="password" id="pwd" class="casilla" name="txtcontraseña" required><br><br> 
-                            <button type="submit" class="boton">Iniciar sesión</button>
-                        </form>
-                        <p><br><br></p>
-                        <!--a href="miCuenta.html" class="boton">
-                            Iniciar sesión
-                        </a-->
-                        <a href="registrarse.html" class="boton">
-                            Crear cuenta
-                        </a> 
-                        
-                    </div>
-                </div>
-            </div>
+        <div class="contenido"> 
+            <form action="validarUsuario.jsp" method="GET" name="miniformualario"> 
+                <button class="restablecer" type="reset">Restablecer campos</button><br>
+                <label for="nombre">Nombre de usuario:</label><br><br>
+                <input type="text" id="nombre" class="casilla" name="txtusuario" required><br><br>
+                <label for="pwd">Contraseña:</label><br><br>
+                <input type="password" id="pwd" class="casilla" name="txtcontraseña" required><br><br> 
+                <button type="submit" class="boton">Iniciar sesión</button>
+            </form>
+            <p><br><br></p>
         </div>
     </body>
 </html>

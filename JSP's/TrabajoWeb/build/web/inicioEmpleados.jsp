@@ -10,7 +10,7 @@
            Pagina principal empleados
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
         <title></title>
     </head>
     <body>
@@ -42,10 +42,7 @@
         ps=con.prepareStatement("select proyecto.name, proyecto.proyectoID, proyecto.empresaID from trabajadores inner join proyectoTrabajadores inner join proyecto where trabajadores.usuario='"+usuario+"' and  proyectoTrabajadores.trabajadorID=trabajadores.trabajadorID and proyectoTrabajadores.proyectoID=proyecto.proyectoID");
         rs=ps.executeQuery();
         %>
-        <div class="fila">
-            <div class="contenido">
-                <div class="card">
-                    <div class="registro">
+                    <div class="container">
                         <h1>Proyectos</h1>
                         <hr>
                         <p>Seleccione el número de horas empleado en cada proyecto</p>
@@ -75,9 +72,7 @@
             </table>
             <br>
                     </div>
-                </div>
-            </div>
-        </div>
+
             <a href="fichar.jsp" class="btn btn-warning btn-sm">Fichar entrada</a>
             <br>
             <br>
@@ -87,15 +82,9 @@
 <%
     int rs2;
     String proyectoID,horasTotales;
-    horasTotales=request.getParameter("txthoras");
-    System.out.println("ProyectoID:");    
+    horasTotales=request.getParameter("txthoras");    
     proyectoID=request.getParameter("txtproyectoID");
-    System.out.println(proyectoID);
     Boolean entrar=false;
-    System.out.println("HorasTotales:");
-    System.out.println(horasTotales);
-    System.out.println("Usuario:");
-    System.out.println(usuario);
     if(horasTotales!=null){
         ps=con.prepareStatement("select horasproyectotrabajador.trabajadorID, horasproyectotrabajador.proyectoID, horasproyectotrabajador.horasTotales from horasproyectotrabajador inner join trabajadores where trabajadores.trabajadorID=horasproyectotrabajador.trabajadorID and trabajadores.usuario='"+usuario+"'");
         rs=ps.executeQuery();

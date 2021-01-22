@@ -13,7 +13,7 @@
             Página para editar una empresa
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
         <!-- CSS -->
@@ -22,6 +22,14 @@
         <header> 
           <div class="title">Portal de empresas</div>
         </header> 
+        <!-- Barra del menu -->
+        <div class="menu"> 
+            <a href="inicioRRHH.jsp">INICIO</a> 
+            <a href="calendario.html">CALENDARIO</a> 
+            <a href="altas.jsp">ALTAS</a> 
+            <a href="peticionesRRHH.jsp">PETICIONES</a>
+            <a href="informes.html">INFORMES</a>
+        </div>
         <%
         Connection con;
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -50,11 +58,10 @@
                 <label>Categoría:</label><br><br>
                 <input type="text" readonly="" value="<%=rs.getString("categoria")%>" id="categoria" class="casilla" name="txtcategoria" required maxlength="15"><br><br>
                 <label>Motivo:</label><br><br>
-                <input type="text" readonly="" value="<%=rs.getString("texto")%>" id="motivo" class="casilla" name="txtmotivo" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <input type="text" readonly="" value="<%=rs.getString("texto")%>" id="motivo" class="casilla" name="txtmotivo" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
                 <label>Estado:</label><br><br>
-                <input type="text" value="<%=rs.getString("estado")%>" id="estado" class="casilla" name="txtestado" required maxlength="15" pattern="[A-Za-z][a-z]+[0-9]*"><br><br>
+                <input type="text" value="<%=rs.getString("estado")%>" id="estado" class="casilla" name="txtestado" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
                 <button onsubmit class="button">Modificar Petición</button>
-                <a href="inicioRRHH.jsp"> Volver Atrás</a>
             </form>
         <%}%>
         </div>

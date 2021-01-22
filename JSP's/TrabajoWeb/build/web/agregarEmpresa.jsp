@@ -14,8 +14,7 @@
            Pagina para dar de alta a una empresa
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <title></title>
+        <link href="plantilla.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- CSS -->
@@ -54,9 +53,8 @@
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos de la Empresa</h2>
             <label>Nombre de la Empresa:</label><br><br>
-            <input type="text" id="nombre" class="casilla" name="txtnombre" required  maxlength="15" pattern="[A-Z][a-z]+(\s[A-Za-z]+)*"><br><br>
+            <input type="text" id="nombre" class="casilla" name="txtnombre" required  maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
             <button onsubmit class="button">Añadir Empresa</button>
-            <a href="altas.jsp"> Volver Atrás</a>
         </form>
         </div>
         

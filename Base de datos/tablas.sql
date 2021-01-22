@@ -1,7 +1,7 @@
 create table empresa(
 name varchar(30),
 empresaID char(5)primary key);
-
+ 
 create table usuarios(
 usuario varchar(20)primary key,
 tipo varchar(20) check(tipo='recursos humanos' or tipo='empleado'),

@@ -3,6 +3,7 @@
     Created on : 13-ene-2021, 17:50:47
     Author     : david
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -12,7 +13,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
         <title>Pagina peticiones empleados</title>
     </head>
     <body>
@@ -77,19 +78,23 @@
         <form action="" method="post">
             <button class="restablecer" type="reset">Restablecer campos</button><br>
             <h2>Escriba los campos de la petición</h2>
-            <label>Código de la petición:</label><br><br>
-            <input type="text" id="codigo" class="casilla" name="txtpeticionesID" required max = "1000000" pattern="[0-9]+"><br><br>
-            <label>Fecha:</label><br><br>
-            <input type="text" id="fecha" class="casilla" name="txtfecha" required  maxlength="15"><br><br>
-            <label>Categoría:</label><br><br>
-            <input type="text" id="categoria" class="casilla" name="txtcategoria" required  maxlength="30"><br><br>
+            <label>Elige una categoría:</label>
+            <br>
+            <br>
+            <select id="peticionCategoria" name="peticionCategoria">
+              <option value="dia libre">Día libre</option>
+              <option value="vacaciones">Vacaciones</option>
+              <option value="horas libres">Horas libres</option>
+              <option value="deberes">Deberes</option>
+            </select>
+            <br>
+            <br>
             <label>Justificación:</label><br><br>
-            <input type="text" id="justificacion" class="casilla" name="txttexto" required  maxlength="15" pattern="[A-Z][a-z]+(\s[A-Za-z]+)*"><br><br>
+            <input type="text" id="justificacion" class="casilla" name="txttexto" required  maxlength="200" pattern="[A-Z][a-z]+(\s[A-Za-z]+)*"><br><br>
             <button onsubmit class="button">Enviar Petición</button>
         </form>
         </div>
             <br>
-            <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
                     </div>
                 </div>
             </div>
@@ -97,9 +102,18 @@
     </body>
 </html>
 <%
-        String peticionesID,categoria,texto;
-        peticionesID=request.getParameter("txtpeticionesID");
-        categoria=request.getParameter("txtcategoria");
+        ArrayList<Integer> identificadores = new ArrayList<Integer>();
+        ps=con.prepareStatement("select peticionesID from peticiones");
+        rs=ps.executeQuery();
+        while(rs.next()){
+            identificadores.add(Integer.parseInt(rs.getString("peticionesID")));
+        }
+        int peticionesID=1;
+        while(identificadores.contains(peticionesID)){
+            peticionesID++;
+        }
+        String categoria,texto;
+        categoria=request.getParameter("peticionCategoria");
         texto=request.getParameter("txttexto");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -110,9 +124,16 @@
         String tiempo = dateFormat.format(date);
         java.sql.Date date2 = new java.sql.Date(date.getTime());
         
-        if(categoria!=null && peticionesID!=null){
+        if(categoria!=null && texto!=null){
             ps=con.prepareStatement("insert into peticiones(peticionesID,fecha,categoria,texto,estado)values('"+peticionesID+"','"+date2+"','"+categoria+"','"+texto+"','en espera')");
             ps.executeUpdate();
+            ps=con.prepareStatement("select trabajadores.trabajadorID from trabajadores where usuario='"+usuario+"'");
+            rs=ps.executeQuery();
+            if(rs.next()){
+                String auxiliar=rs.getString("trabajadorID");
+                ps=con.prepareStatement("insert into peticionesTrabajadores(trabajadorID,peticionesID)values('"+auxiliar+"','"+peticionesID+"')");
+                ps.executeUpdate();
+            }
             response.sendRedirect("inicioEmpleados.jsp");
         }       
 %>

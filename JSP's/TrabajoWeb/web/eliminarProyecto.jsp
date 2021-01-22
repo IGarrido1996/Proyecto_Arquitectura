@@ -27,6 +27,8 @@
         String proyectoID=request.getParameter("proyectoID");
         ps=con.prepareStatement("delete from proyecto where proyectoID="+proyectoID);
         ps.executeUpdate();
+        ps=con.prepareStatement("delete from proyectoTrabajadores where proyectoID="+proyectoID);
+        ps.executeUpdate();
         response.sendRedirect("inicioRRHH.jsp");
         %>
     </body>

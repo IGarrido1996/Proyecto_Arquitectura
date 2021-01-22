@@ -27,6 +27,8 @@
         String peticionesID=request.getParameter("peticionesID");
         ps=con.prepareStatement("delete from peticiones where peticionesID="+peticionesID);
         ps.executeUpdate();
+        ps=con.prepareStatement("delete from peticionesTrabajadores where peticionesID="+peticionesID);
+        ps.executeUpdate();
         response.sendRedirect("inicioRRHH.jsp");
         %>
     </body>
