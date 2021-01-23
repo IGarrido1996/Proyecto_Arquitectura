@@ -41,7 +41,7 @@
         if(rs.next()){
             trabajadorID=rs.getString("trabajadorID");
         }
-        ps=con.prepareStatement("select * from peticiones inner join peticionesTrabajadores where peticionesTrabajadores.trabajadorID='"+trabajadorID+"' and peticiones.peticionesID=peticionesTrabajadores.peticionesID and peticiones.estado=aprobada");
+        ps=con.prepareStatement("select * from peticiones inner join peticionesTrabajadores where peticionesTrabajadores.trabajadorID='"+trabajadorID+"' and peticiones.peticionesID=peticionesTrabajadores.peticionesID and peticiones.estado='aprobada'");
         rs=ps.executeQuery();
         while(rs.next()){
             fechasInicio.add(Date.valueOf(rs.getString("fechaInicio")));
