@@ -27,9 +27,9 @@
         <!-- Barra del menu -->
         <div class="menu"> 
             <a href="inicioEmpleados.jsp">INICIO</a> 
-            <a href="calendario.html">CALENDARIO</a> 
+            <a href="calendario.jsp">CALENDARIO</a> 
             <a href="peticiones.jsp">PETICIONES</a>
-            <a href="fichar.html">FICHAR</a> 
+            <a href="ficharEmpleado.jsp">FICHAR</a> 
         </div> 
         <%
             Connection con;
@@ -43,20 +43,20 @@
             PreparedStatement ps;
             ResultSet rs;
             String usuario=(String) request.getSession().getAttribute("usuario"); 
-            ps=con.prepareStatement("select trabajadores.name,trabajadores.trabajadorID,peticiones.peticionesID, peticiones.fecha, peticiones.categoria, peticiones.texto, peticiones.estado from peticiones inner join peticionesTrabajadores inner join trabajadores where peticionesTrabajadores.peticionesID=peticiones.peticionesID and trabajadores.usuario='"+usuario+"' and peticionesTrabajadores.trabajadorID=trabajadores.trabajadorID");
+            ps=con.prepareStatement("select trabajadores.name,trabajadores.trabajadorID,peticiones.peticionesID, peticiones.fechaInicio, peticiones.fechaFin,peticiones.categoria, peticiones.texto, peticiones.estado from peticiones inner join peticionesTrabajadores inner join trabajadores where peticionesTrabajadores.peticionesID=peticiones.peticionesID and trabajadores.usuario='"+usuario+"' and peticionesTrabajadores.trabajadorID=trabajadores.trabajadorID");
             rs=ps.executeQuery();
         %>
-            <div class="fila">
-            <div class="contenido">
-                <div class="card">
-                    <div class="registro">
+
+            <div class="container">
+
                         <h1>Peticiones</h1>
                         <hr>
                         <p>Consulte el estado de sus peticiones</p>
                         <table class="table table-bordered">
                             <tr>
                                 <th class="text-center">Código de la petición</th>
-                                <th class="text-center">Fecha</th>
+                                <th class="text-center">Fecha de inicio</th>
+                                <th class="text-center">Fecha final</th>
                                 <th class="text-center">Categoría</th>
                                 <th class="text-center">Motivo</th>
                                 <th class="text-center">Estado</th>
@@ -66,7 +66,8 @@
                 %>
                 <tr>
                     <td class="text-center"><%= rs.getString("peticionesID")%></td>
-                    <td class="text-center"><%= rs.getString("fecha")%></td>
+                    <td class="text-center"><%= rs.getString("fechaInicio")%></td>
+                    <td class="text-center"><%= rs.getString("fechaFin")%></td>
                     <td class="text-center"><%= rs.getString("categoria")%></td>
                     <td class="text-center"><%= rs.getString("texto")%></td>
                     <td class="text-center"><%= rs.getString("estado")%></td>
@@ -89,6 +90,10 @@
             </select>
             <br>
             <br>
+            <label>Fecha de inicio:</label><br><br>
+            <input type="text" id="fechaInicio" class="casilla" name="txtfechaInicio" required  maxlength="200"><br><br>
+            <label>Fecha del fin:</label><br><br>
+            <input type="text" id="fechaFin" class="casilla" name="txtfechaFin" required  maxlength="200"><br><br>
             <label>Justificación:</label><br><br>
             <input type="text" id="justificacion" class="casilla" name="txttexto" required  maxlength="200" pattern="[A-Z][a-z]+(\s[A-Za-z]+)*"><br><br>
             <button onsubmit class="button">Enviar Petición</button>
@@ -96,9 +101,6 @@
         </div>
             <br>
                     </div>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
 <%
@@ -112,20 +114,21 @@
         while(identificadores.contains(peticionesID)){
             peticionesID++;
         }
-        String categoria,texto;
+        String categoria,texto,fechaInicio,fechaFin;
         categoria=request.getParameter("peticionCategoria");
         texto=request.getParameter("txttexto");
+        fechaInicio=request.getParameter("txtfechaInicio");
+        fechaFin=request.getParameter("txtfechaFin");
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+        //Calendar cal = Calendar.getInstance(); 
         
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-        Calendar cal = Calendar.getInstance(); 
         
-        
-        java.util.Date date = new java.util.Date();  
-        String tiempo = dateFormat.format(date);
-        java.sql.Date date2 = new java.sql.Date(date.getTime());
+        //java.util.Date date = new java.util.Date();  
+        //String tiempo = dateFormat.format(date);
+        //java.sql.Date date2 = new java.sql.Date(date.getTime());
         
         if(categoria!=null && texto!=null){
-            ps=con.prepareStatement("insert into peticiones(peticionesID,fecha,categoria,texto,estado)values('"+peticionesID+"','"+date2+"','"+categoria+"','"+texto+"','en espera')");
+            ps=con.prepareStatement("insert into peticiones(peticionesID,fechaInicio,fechaFin,categoria,texto,estado)values('"+peticionesID+"','"+fechaInicio+"','"+fechaFin+"','"+categoria+"','"+texto+"','en espera')");
             ps.executeUpdate();
             ps=con.prepareStatement("select trabajadores.trabajadorID from trabajadores where usuario='"+usuario+"'");
             rs=ps.executeQuery();

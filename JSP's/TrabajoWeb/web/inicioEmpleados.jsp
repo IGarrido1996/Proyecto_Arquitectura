@@ -22,9 +22,9 @@
         <!-- Barra del menu -->
         <div class="menu"> 
             <a href="inicioEmpleados.jsp">INICIO</a> 
-            <a href="calendario.html">CALENDARIO</a> 
+            <a href="calendario.jsp">CALENDARIO</a> 
             <a href="peticiones.jsp">PETICIONES</a>
-            <a href="fichar.html">FICHAR</a> 
+            <a href="ficharEmpleado.jsp">FICHAR</a> 
         </div>
         <%
         Connection con;
@@ -72,11 +72,6 @@
             </table>
             <br>
                     </div>
-
-            <a href="fichar.jsp" class="btn btn-warning btn-sm">Fichar entrada</a>
-            <br>
-            <br>
-            <a href="ficharSalida.jsp" class="btn btn-warning btn-sm">Fichar salida</a>
     </body>
 </html>
 <%

@@ -40,7 +40,8 @@
             request.getSession().setAttribute("usuario", usuario);
             response.sendRedirect("inicioEmpleados.jsp");
         }else{
-            out.println("Usuario o contraseña erróneos");
+            //out.println("Usuario o contraseña erróneos");
+            response.sendRedirect("error400.html");
         }
         %>
         <br>

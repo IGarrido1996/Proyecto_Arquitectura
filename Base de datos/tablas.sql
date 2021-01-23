@@ -36,7 +36,8 @@ foreign key (proyectoID) references proyecto (proyectoID) on delete cascade);
 
 create table peticiones(
 peticionesID char(5)primary key,
-fecha date,
+fechaInicio date,
+fechaFin date,
 categoria varchar(14) check(categoria='dia libre' or categoria='vacaciones' or categoria='horas libres' or categoria='deberes'),
 texto text,
 estado varchar(10) check(estado='en espera' or estado='aprobada' or estado='denegada'));
@@ -78,10 +79,10 @@ insert into proyectoTrabajadores(trabajadorID,proyectoID)values('2','3');
 insert into proyectoTrabajadores(trabajadorID,proyectoID)values('10','3');
 insert into proyectoTrabajadores(trabajadorID,proyectoID)values('10','6');
 
-insert into peticiones(peticionesID,fecha,categoria,texto,estado) values ('1','2020-12-10','deberes','Queria solicitar vacaciones','en espera');
-insert into peticiones(peticionesID,fecha,categoria,texto,estado)values('4','2021-01-13','vacaciones','me gustaría tomarme unas vacaciones','en espera');
-insert into peticiones(peticionesID,fecha,categoria,texto,estado)values('2','2021-01-13','dia libre','me gustaría tomarme un dia libre','en espera');
-insert into peticiones(peticionesID,fecha,categoria,texto,estado)values('3','2021-01-13','deberes','tengo deberes pendientes','denegada');
+insert into peticiones(peticionesID,fechaInicio,fechaFin,categoria,texto,estado) values ('1','2020-12-10','2021-01-7','deberes','Queria solicitar vacaciones','en espera');
+insert into peticiones(peticionesID,fechaInicio,fechaFin,categoria,texto,estado)values('4','2021-01-13','2021-01-20','vacaciones','me gustaría tomarme unas vacaciones','en espera');
+insert into peticiones(peticionesID,fechaInicio,fechaFin,categoria,texto,estado)values('2','2021-01-13','2021-01-19','dia libre','me gustaría tomarme un dia libre','en espera');
+insert into peticiones(peticionesID,fechaInicio,fechaFin,categoria,texto,estado)values('3','2021-01-13','2021-01-21','deberes','tengo deberes pendientes','denegada');
 
 insert into peticionesTrabajadores(trabajadorID,peticionesID)values('1','1');
 insert into peticionesTrabajadores(trabajadorID,peticionesID)values('2','2');

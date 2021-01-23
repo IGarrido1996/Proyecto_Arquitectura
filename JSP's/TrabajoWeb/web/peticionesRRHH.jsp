@@ -28,7 +28,7 @@
             <a href="calendario.html">CALENDARIO</a> 
             <a href="altas.jsp">ALTAS</a> 
             <a href="peticionesRRHH.jsp">PETICIONES</a>
-            <a href="informes.html">INFORMES</a> 
+            <a href="informes.jsp">INFORMES</a> 
         </div>
         <%
             Connection con;
@@ -47,7 +47,8 @@
                 <table class="table table-bordered">
                     <tr>
                     <th class="text-center">Código de la petición</th>
-                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Fecha de Inicio</th>
+                    <th class="text-center">Fecha de Fin</th>
                     <th class="text-center">Categoria</th>
                     <th class="text-center">Texto</th>
                     <th class="text-center">Estado</th>
@@ -61,7 +62,8 @@
             
                     <tr>
                         <td class="text-center"><%= rs.getString("peticionesID")%></td>
-                        <td class="text-center"><%= rs.getString("fecha")%></td>
+                        <td class="text-center"><%= rs.getString("fechaInicio")%></td>
+                        <td class="text-center"><%= rs.getString("fechaFin")%></td>
                         <td class="text-center"><%= rs.getString("categoria")%></td>
                         <td class="text-center"><%= rs.getString("texto")%></td>
                         <td class="text-center"><%= rs.getString("estado")%></td>

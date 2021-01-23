@@ -30,7 +30,7 @@
             <a href="calendario.html">CALENDARIO</a> 
             <a href="altas.jsp">ALTAS</a> 
             <a href="peticionesRRHH.jsp">PETICIONES</a>
-            <a href="informes.html">INFORMES</a>
+            <a href="informes.jsp">INFORMES</a>
         </div>
         <%
             Connection con;
