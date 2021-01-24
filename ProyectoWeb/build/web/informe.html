@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+    <head>
+        <title>INFORME</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <h1>Generador de Informes.</h1>
+
+        <form>
+
+            <label> Tipo de informe</label> <br>
+            <div id="divTipo">
+                <select id="seleccionaTipo">
+
+                </select>
+
+            </div>
+
+            <br>
+            <label> Periodo</label> <br>
+            <div id="divPeriodo">
+                <select id="seleccionaPeriodo">
+
+                </select>
+
+            </div>
+
+            <br>
+            <button id="botonInforme" onclick="WriteToFile()"> Genera Informe</button>
+
+            <br>
+            <div id="textoInforme"> </div>
+
+        </form>
+
+        <!--<script type="text/javascript" src="informe.js"></script> -->
+    </body>
+</html>
+<SCRIPT LANGUAGE="JavaScript">
+    function WriteToFile() {
+        var fso = Server.CreateObject("Scripting.FileSystemObject");
+        var Folder = fso.GetFolder("C:\\Users\\micha\\OneDrive\\Escritorio\\prueba");
+        var FileCollection = Folder.Files;
+        Response.Write("JScript Method<BR>");
+        var s = fso.CreateTextFile("C:\\Users\\micha\\OneDrive\\Escritorio\\prueba\\prueba.txt", True);
+        s.writeline("HI");
+        s.writeline("Bye");
+        s.writeline("-----------------------------");
+        s.Close();
+    }
+</SCRIPT>
