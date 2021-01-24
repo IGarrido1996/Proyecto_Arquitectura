@@ -132,13 +132,14 @@ fecha_evento.addEventListener('click', (e) => {
     //pie = document.getElementById("text_event");
     pie = document.getElementById("labelFecha");
     //pie.innerHTML += diaActual + " de " + meses[numeroMes] + " de " + añoActual + "\n";
-    fechaLabel.textContent = "Evento para el " + e.target.textContent + " de " + meses[numeroMes] + " de " + añoActual + "\n";
+    fechaLabel.textContent = "Evento para el " + e.target.textContent + " de " + meses[numeroMes] + " de " + añoActual +"||"+"Evento de la base de datos" +"\n";
 
 })
 
 
-
+//No se generara funcion desde aqui
 function enviaEvento() {
     document.getElementById("textEvento") = " ";
 
 }
+//Funcion que seleccione los dias de evento
