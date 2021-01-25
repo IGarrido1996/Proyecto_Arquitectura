@@ -70,18 +70,26 @@
     </body>
 </html>
 <%
-        String name,usuario;
+        String name,usuario,horaInicio,horaFin;
         name=request.getParameter("txtnombre");
         usuario=request.getParameter("txtusuario");
+        horaInicio=request.getParameter("txthorainicio");
+        horaFin=request.getParameter("txthorafin");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
         Calendar cal = Calendar.getInstance(); 
         java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
 
-        
         if(name!=null){
-            ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio='"+timestamp+"',horaFin='"+timestamp+"' where trabajadorID="+trabajadorID);
-            ps.executeUpdate();
+            if(horaInicio.equals("null") || horaFin.equals("null") || horaInicio.equals(null) || horaFin.equals(null)){
+                System.out.println("He entrado");
+                ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio="+null+",horaFin="+null+" where trabajadorID="+trabajadorID);
+                ps.executeUpdate();
+            }else{
+                ps=con.prepareStatement("update trabajadores set name='"+name+"',usuario='"+usuario+"',horaInicio='"+horaInicio+"',horaFin='"+horaFin+"' where trabajadorID="+trabajadorID);
+                ps.executeUpdate();
+            }
+            
             response.sendRedirect("../paginasWeb/inicioRRHH.jsp");
         }   
 %>
