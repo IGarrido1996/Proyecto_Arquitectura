@@ -93,24 +93,6 @@ insert into horasproyectotrabajador (trabajadorID,proyectoID,horasTotales) value
 insert into horasproyectotrabajador (trabajadorID,proyectoID,horasTotales) values ('1','2',3);
 insert into horasproyectotrabajador (trabajadorID,proyectoID,horasTotales) values ('1','6',2);
 
-select * from proyectoTrabajadores inner join trabajadores where proyectoTrabajadores.trabajadorID=trabajadores.trabajadorID;
-select * from empresa;
-select * from proyecto;
-select * from trabajadores;
-select * from proyectotrabajadores;
-select * from peticiones;
-select * from usuarios;
-select * from peticionesTrabajadores; 
-select * from horasproyectotrabajador;
-update trabajadores set horaInicio='2021-01-16 19:37' where trabajadores.usuario='Pruebas';
-insert into horasproyectotrabajador(trabajadorID,proyectoID,horasTotales) values ('1','1','7');
-delete from horasproyectotrabajador where horasproyectotrabajador.proyectoID='1';
-
-update trabajadores set peticionesID='00001' where trabajadorID='00001';
-select proyecto.name, proyecto.proyectoID, proyecto.empresaID from trabajadores inner join proyectoTrabajadores inner join proyecto where trabajadores.usuario='Pruebas' and  proyectoTrabajadores.trabajadorID=trabajadores.trabajadorID and proyectoTrabajadores.proyectoID=proyecto.proyectoID;
-select trabajadores.name,trabajadores.trabajadorID,peticiones.peticionesID, peticiones.fecha, peticiones.categoria, peticiones.texto, peticiones.estado from peticiones inner join peticionesTrabajadores inner join trabajadores where peticionesTrabajadores.peticionesID=peticiones.peticionesID and trabajadores.usuario='Pruebas' and peticionesTrabajadores.trabajadorID=trabajadores.trabajadorID;
-delete from trabajadores where trabajadorID='00001';
-select horasproyectotrabajador.trabajadorID, horasproyectotrabajador.proyectoID, horasproyectotrabajador.horasTotales from horasproyectotrabajador inner join trabajadores where trabajadores.trabajadorID=horasproyectotrabajador.trabajadorID and trabajadores.usuario="UsuarioDavid";
 
 
 

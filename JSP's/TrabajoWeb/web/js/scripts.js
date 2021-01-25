@@ -137,6 +137,7 @@ fecha_evento.addEventListener('click', (e) => {
     pie = document.getElementById("labelFecha");
     //pie.innerHTML += diaActual + " de " + meses[numeroMes] + " de " + añoActual + "\n";
     fechaLabel.textContent = "Evento para el " + e.target.textContent + " de " + meses[numeroMes] + " de " + añoActual + "\n";
+    
 
 })
 

@@ -3,6 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.ArrayList;
+import java.sql.*;
 
 public final class calendario_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +46,8 @@ public final class calendario_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!doctype html>\n");
       out.write("<html lang=\"es\">\n");
       out.write("\n");
@@ -56,8 +60,47 @@ public final class calendario_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <title>Calendario Laboral</title>\n");
       out.write("</head>\n");
       out.write("\n");
-      out.write("<body>\n");
       out.write("\n");
+      out.write("    ");
+
+        Connection con;
+        String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String driver="com.mysql.jdbc.Driver";
+        String user="root";
+        String pass="contraseña";
+        Class.forName(driver);
+        con=DriverManager.getConnection(url,user,pass);
+        
+        ArrayList<Date> fechasInicio = new ArrayList<Date>();
+        ArrayList<Date> fechasFin = new ArrayList<Date>();
+        ArrayList<String> categoria = new ArrayList<String>();
+        PreparedStatement ps;
+        ResultSet rs;
+        String trabajadorID="";
+        String usuario=(String) request.getSession().getAttribute("usuario"); 
+        ps=con.prepareStatement("select trabajadorID from trabajadores where usuario='"+usuario+"'");
+        rs=ps.executeQuery();
+        if(rs.next()){
+            trabajadorID=rs.getString("trabajadorID");
+        }
+        ps=con.prepareStatement("select * from peticiones inner join peticionesTrabajadores where peticionesTrabajadores.trabajadorID='"+trabajadorID+"' and peticiones.peticionesID=peticionesTrabajadores.peticionesID and peticiones.estado='aprobada'");
+        rs=ps.executeQuery();
+        while(rs.next()){
+            fechasInicio.add(Date.valueOf(rs.getString("fechaInicio")));
+            fechasFin.add(Date.valueOf(rs.getString("fechaFin")));
+            categoria.add(rs.getString("categoria"));
+        }
+        
+      out.write("\n");
+      out.write("    <input type=\"hidden\" id=\"fechasInicioHidden\" value=");
+      out.print( fechasInicio );
+      out.write(" />\n");
+      out.write("    <input type=\"hidden\" id=\"fechasFinHidden\" value=");
+      out.print( fechasFin );
+      out.write(" />\n");
+      out.write("    <input type=\"hidden\" id=\"categoriaHidden\" value=");
+      out.print( categoria );
+      out.write(" />\n");
       out.write("    <h1 class=\"title\">Calendario Laboral</h1>\n");
       out.write("\n");
       out.write("    <div class=\"calendar\">\n");
@@ -94,7 +137,7 @@ public final class calendario_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("\n");
       out.write("    <script src=\"js/scripts.js\"></script>\n");
-      out.write("</body>\n");
+      out.write("\n");
       out.write("\n");
       out.write("</html>\n");
     } catch (Throwable t) {

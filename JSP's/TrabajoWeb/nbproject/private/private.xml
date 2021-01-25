@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/eliminar.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/informes.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/editarPeticion.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/editarEmpresa.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/peticionesRRHH.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/calendario.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/validarUsuario.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/editarProyecto.jsp</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/informe.js</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/operaciones/editarPeticion.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/operaciones/AgregarProyecto.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/paginasWeb/ficharEmpleado.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/operaciones/peticiones.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/operaciones/Agregar.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/index.jsp</file>
+            <file>file:/C:/Users/david/Documents/NetBeansProjects/TrabajoWeb/web/operaciones/agregarEmpresa.jsp</file>
         </group>
     </open-files>
 </project-private>

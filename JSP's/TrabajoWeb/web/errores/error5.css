@@ -1,0 +1,15 @@
+* {
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    padding: 0.5em;
+}
+
+#error {
+    border: 4px double black;
+    max-width: 536px;
+    background-color: #f76666;
+    text-align: center;
+}

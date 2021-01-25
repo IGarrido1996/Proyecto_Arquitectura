@@ -17,7 +17,7 @@ public class CrearArchivo {
 
     public static String generartxt(String log) {
         try {
-            String ruta = "/C:/Users/micha/OneDrive/Escritorio/prueba/prueba.txt"; //ruta cambiara
+            String ruta = "/E:/Users/david/Desktop/Universidad/Tercero/Proyecto_Arquitectura/ProyectoWebprueba.txt"; //ruta cambiara
             String contenido = "Contenido de ejemplo";
             File file = new File(ruta);
             // Si el archivo no existe es creado

@@ -15,7 +15,7 @@
     </head>
     <body>
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="plantilla.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/plantilla.css" media="screen" />
         <header> 
             <div class="title">Inicio de Sesión</div>
         </header>
@@ -34,7 +34,7 @@
         rs=ps.executeQuery();
         %>
         <div class="contenido"> 
-            <form action="validarUsuario.jsp" method="GET" name="miniformualario"> 
+            <form action="controladores/validarUsuario.jsp" method="GET" name="miniformualario"> 
                 <button class="restablecer" type="reset">Restablecer campos</button><br>
                 <label for="nombre">Nombre de usuario:</label><br><br>
                 <input type="text" id="nombre" class="casilla" name="txtusuario" required><br><br>
@@ -42,7 +42,6 @@
                 <input type="password" id="pwd" class="casilla" name="txtcontraseña" required><br><br> 
                 <button type="submit" class="boton">Iniciar sesión</button>
             </form>
-            <p><br><br></p>
         </div>
     </body>
 </html>
