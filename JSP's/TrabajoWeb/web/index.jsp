@@ -24,7 +24,7 @@
         String url="jdbc:mysql://localhost:3306/arquitecturaweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         String driver="com.mysql.jdbc.Driver";
         String user="root";
-        String pass="contraseña";
+        String pass="Mvplovemylive007";
         Class.forName(driver);
         con=DriverManager.getConnection(url,user,pass);
         

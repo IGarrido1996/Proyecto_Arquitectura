@@ -1,5 +1,8 @@
+
 var tipo = ["empresa", "proyecto", "empleado"];
 var periodo = ["semanal", "mensual", "anual"];
+var nombreInforme = ["Pruebas"];
+
 
 
 var selectTipo = document.getElementById("seleccionaTipo");
@@ -24,10 +27,21 @@ for (i = 0; i < periodo.length; i++) {
     opt.setAttribute("value", periodo[i]);
     opt.text = periodo[i];
     selectPeriodo.appendChild(opt);
-    console.log("hola");
+
 }
 
+
 selectPeriodo.appendChild(fragment);
+
+var selectNombre = document.getElementById("seleccionaNombre");
+for (i = 0; i < nombreInforme.length; i++) {
+    var opt = document.createElement("option");
+    opt.setAttribute("value", nombreInforme[i]);
+    opt.text = nombreInforme[i];
+    selectNombre.appendChild(opt);
+
+}
+selectNombre.appendChild(fragment);
 
 
 var divTextoInforme = document.getElementById("textoInforme");
@@ -38,13 +52,16 @@ texto.setAttribute("id", "miInforme");
 texto.setAttribute("rows", "10");
 texto.setAttribute("cols", "40");
 texto.setAttribute("style", "width:180px");
-
 divTextoInforme.appendChild(texto);
 
 
 
+
+
+
 function generaInforme() {
-    var informe
+
+    var informe;
 
     var indiceTipo = document.getElementById("seleccionaTipo").selectedIndex;
 
@@ -53,9 +70,12 @@ function generaInforme() {
 
     var indicePeriodo = document.getElementById("seleccionaTipo").selectedIndex;
     var valorPeriodo = document.getElementById("seleccionaPeriodo").options[indicePeriodo].value;
-    informe += "\n" + "Periodo: " + valorPeriodo;
-
-    var muestra = document.getElementById("miInforme");
+    informe += "\n" + "Periodo: " + valorPeriodo + "\n";
+    informe += "Datos Empleado";
+    informe += "\n" + "Nombre: prueba";
+    informe += "\n" + "Empresa: circuitos";
+    var muestra = document.getElementById("textoInforme");
     muestra.textContent = informe;
     console.log(informe);
+
 }

@@ -42,27 +42,34 @@ public final class editarProyecto_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html lang=\"es\">\n");
-      out.write("    <head>\n");
-      out.write("        <title>\n");
-      out.write("            Página para editar un proyecto\n");
-      out.write("        </title>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
-      out.write("        <title></title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <!-- CSS -->\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"plantilla.css\" media=\"screen\" />\n");
-      out.write("        <!-- Titulos -->\n");
-      out.write("        <header> \n");
-      out.write("          <div class=\"title\">Portal de proyectos</div>\n");
-      out.write("        </header> \n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html lang=\"es\">\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <title>\r\n");
+      out.write("            Página para editar un proyecto\r\n");
+      out.write("        </title>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <!-- CSS -->\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"plantilla.css\" media=\"screen\" />\r\n");
+      out.write("        <!-- Titulos -->\r\n");
+      out.write("        <header> \r\n");
+      out.write("          <div class=\"title\">Portal de proyectos</div>\r\n");
+      out.write("        </header> \r\n");
+      out.write("        <!-- Barra del menu -->\r\n");
+      out.write("        <div class=\"menu\"> \r\n");
+      out.write("            <a href=\"inicioRRHH.jsp\">INICIO</a> \r\n");
+      out.write("            <a href=\"calendario.html\">CALENDARIO</a> \r\n");
+      out.write("            <a href=\"altas.jsp\">ALTAS</a> \r\n");
+      out.write("            <a href=\"peticionesRRHH.jsp\">PETICIONES</a>\r\n");
+      out.write("            <a href=\"informes.jsp\">INFORMES</a>\r\n");
+      out.write("        </div>\r\n");
       out.write("        ");
 
         Connection con;
@@ -80,32 +87,30 @@ public final class editarProyecto_jsp extends org.apache.jasper.runtime.HttpJspB
         rs=ps.executeQuery();
         while(rs.next()){
         
-      out.write("\n");
-      out.write("        <div class=\"cardMedio\">\n");
-      out.write("            <form action=\"\" method=\"post\">\n");
-      out.write("                <button class=\"restablecer\" type=\"reset\">Restablecer campos</button><br>\n");
-      out.write("                <h2>Escriba los campos del proyecto</h2>\n");
-      out.write("                <label>Nombre del proyecto:</label><br><br>\n");
+      out.write("\r\n");
+      out.write("        <div class=\"cardMedio\">\r\n");
+      out.write("            <form action=\"\" method=\"post\">\r\n");
+      out.write("                <h2>Modificar Proyecto</h2>\r\n");
+      out.write("                <label>Nombre del proyecto:</label><br><br>\r\n");
       out.write("                <input type=\"text\" value=\"");
       out.print(rs.getString("name"));
-      out.write("\" id=\"nombre\" class=\"casilla\" name=\"txtnombre\" required maxlength=\"15\" pattern=\"[A-Za-z][a-z]+[0-9]*\"><br><br>\n");
-      out.write("                <label>Código del proyecto:</label><br><br>\n");
-      out.write("                <input type=\"text\" value=\"");
+      out.write("\" id=\"nombre\" class=\"casilla\" name=\"txtnombre\" required maxlength=\"15\" pattern=\"[A-Za-z0-9]+\"><br><br>\r\n");
+      out.write("                <label>Código del proyecto:</label><br><br>\r\n");
+      out.write("                <input type=\"text\" readonly=\"\" value=\"");
       out.print(rs.getString("proyectoID"));
-      out.write("\" id=\"codigo\" class=\"casilla\" name=\"txtproyectoID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\n");
-      out.write("                <label>Código de la empresa del proyecto:</label><br><br>\n");
+      out.write("\" id=\"codigo\" class=\"casilla\" name=\"txtproyectoID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\r\n");
+      out.write("                <label>Código de la empresa del proyecto:</label><br><br>\r\n");
       out.write("                <input type=\"text\" value=\"");
       out.print(rs.getString("empresaID"));
-      out.write("\" id=\"codigoEmpresa\" class=\"casilla\" name=\"txtempresaID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\n");
-      out.write("                <button onsubmit class=\"button\">Modificar Proyecto</button>\n");
-      out.write("                <a href=\"inicioRRHH.jsp\"> Volver Atrás</a>\n");
-      out.write("            </form>\n");
+      out.write("\" id=\"codigoEmpresa\" class=\"casilla\" name=\"txtempresaID\" required min = \"1\" max = \"1000000\" pattern=\"[0-9]+\"><br><br>\r\n");
+      out.write("                <button onsubmit class=\"button\">Modificar Proyecto</button>\r\n");
+      out.write("            </form>\r\n");
       out.write("        ");
 }
-      out.write("\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
 
         String name,empresaID;
         name=request.getParameter("txtnombre");
@@ -117,6 +122,7 @@ public final class editarProyecto_jsp extends org.apache.jasper.runtime.HttpJspB
             response.sendRedirect("inicioRRHH.jsp");
         }   
 
+      out.write('\r');
       out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

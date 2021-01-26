@@ -26,6 +26,7 @@
         String driver="com.mysql.jdbc.Driver";
         String user="root";
         String pass="contraseña";
+        System.out.println(pass);
         Class.forName(driver);
         con=DriverManager.getConnection(url,user,pass);
         

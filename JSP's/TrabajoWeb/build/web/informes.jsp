@@ -38,7 +38,7 @@
         </div>
 
         <br>
-        <button id="botonInforme" onclick="generaInforme()"> Genera Informe</button>
+        <button id="botonInforme" onclick="generaInforme():return false"> Genera Informe</button>
 
         <br>
         <div id="textoInforme"> </div>

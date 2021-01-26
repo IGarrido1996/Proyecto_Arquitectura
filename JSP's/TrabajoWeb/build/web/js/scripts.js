@@ -143,6 +143,3 @@ fecha_evento.addEventListener('click', (e) => {
 
 
 
-function enviaEvento() {
-    document.getElementById("textEvento") = " ";
-}
