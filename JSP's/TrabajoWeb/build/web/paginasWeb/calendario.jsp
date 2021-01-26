@@ -11,6 +11,7 @@
 <html lang="es">
 
 <head>
+    <div align="center"><img src="../css/logo.png" alt=""></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -42,18 +43,5 @@
 
         </div>
     </div>
-
-    <br>
-    <div class="calendar_event" id="text_event">
-        <form id="formEvento">
-            <label id="labelFecha"></label><br>
-            <input type="textarea" id="textEvento"><br>
-            <input type="submit" value="Enviar" onclick="enviaEvento()">
-        </form>
-
-    </div>
-
     <script src="../js/scripts.js"></script>
-
-
 </html>

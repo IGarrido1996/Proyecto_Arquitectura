@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Página principal de Altas</title>
@@ -21,7 +22,7 @@
 
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal de RRHH</div>
+          <div class="title">Portal de Altas</div>
         </header> 
 
         <!-- Barra del menu -->

@@ -9,8 +9,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="css/logo.png" alt=""></div>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
         <title></title>
     </head>
     <body>

@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>
             Página principal de RRHH
         </title>

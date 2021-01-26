@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>
             Página para editar una empresa
         </title>
@@ -20,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../css/plantilla.css" media="screen" />
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal de empresas</div>
+          <div class="title">Portal de Peticiones</div>
         </header> 
         <!-- Barra del menu -->
         <div class="menu"> 
@@ -61,7 +62,7 @@
                 <input type="text" readonly="" value="<%=rs.getString("categoria")%>" id="categoria" class="casilla" name="txtcategoria" required maxlength="15"><br><br>
                 <label>Motivo:</label><br><br>
                 <input type="text" readonly="" value="<%=rs.getString("texto")%>" id="motivo" class="casilla" name="txtmotivo" required maxlength="15" pattern="[A-Za-z0-9]+"><br><br>
-                <label>Elige una Estado:</label>
+                <label>Elige un Estado:</label>
                 <br>
                 <br>
                 <select id="peticionEstado" name="peticionEstado">

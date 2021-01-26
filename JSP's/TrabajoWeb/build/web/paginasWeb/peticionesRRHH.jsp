@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Página de recepción y validación de peticiones de RRHH</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="../css/plantilla.css" media="screen" /> 
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal de RRHH</div>
+          <div class="title">Portal de Peticiones</div>
         </header> 
 
         <!-- Barra del menu -->
