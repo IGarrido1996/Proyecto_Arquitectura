@@ -1,3 +1,4 @@
+use arquitecturaweb;
 create table empresa(
 name varchar(30),
 empresaID char(5)primary key);
