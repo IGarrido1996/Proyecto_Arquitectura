@@ -6,6 +6,7 @@
 <%@page import="java.sql.*"%>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>
            Pagina principal empleados
         </title>

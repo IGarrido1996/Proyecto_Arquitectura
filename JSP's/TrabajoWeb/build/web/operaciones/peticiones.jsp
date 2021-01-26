@@ -13,7 +13,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>Pagina peticiones empleados</title>
     </head>
     <body>
@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../css/plantilla.css" media="screen" /> 
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal Empleado</div>
+          <div class="title">Portal de Peticiones</div>
         </header> 
 
         <!-- Barra del menu -->

@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>
            Pagina para dar de alta un trabajador
         </title>
@@ -24,7 +25,7 @@
         <link rel="stylesheet" type="text/css" href="../css/plantilla.css" media="screen" />
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal de Informes</div>
+          <div class="title">Portal de Altas</div>
         </header> 
 
         <!-- Barra del menu -->

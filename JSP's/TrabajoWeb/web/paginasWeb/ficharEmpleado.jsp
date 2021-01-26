@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <div align="center"><img src="../css/logo.png" alt=""></div>
         <title>
            Pagina registro de horas trabajadores
         </title> 
@@ -22,7 +23,7 @@
 
         <!-- Titulos -->
         <header> 
-          <div class="title">Portal de Informes</div>
+          <div class="title">Portal para Fichar</div>
         </header> 
 
         <!-- Barra del menu -->
